@@ -45,7 +45,7 @@ stages:
 - stage: Deploy
   dependsOn: Build
   jobs:
-  - job: Deploy
+  - deployment: Deploy
     pool:
       name: WinAgentPool
       environment: dev
