@@ -50,21 +50,21 @@ stages:
       name: WinAgentPool
     environment: dev
     strategy:
-    runOnce:
-      deploy:
-        steps:
+      runOnce:
+        deploy:
+          steps:
 
-        - task: DownloadBuildArtifacts@0
-          inputs:
-            buildType: 'current'
-            downloadType: 'single'
-            ArtifactName: 'drop'
-            downloadPath: '$(System.ArtifactsDirectory)'
+          - task: DownloadBuildArtifacts@0
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              ArtifactName: 'drop'
+              downloadPath: '$(System.ArtifactsDirectory)'
 
-        - task: AzureRmWebAppDeployment@4
-          inputs:
-            ConnectionType: 'AzureRM'
-            azureSubscription: 'service'
-            appType: 'webApp'
-            WebAppName: 'testwebapp9876'
-            packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: 'service'
+              appType: 'webApp'
+              WebAppName: 'testwebapp9876'
+              packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
