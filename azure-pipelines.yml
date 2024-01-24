@@ -62,5 +62,5 @@ stages:
         ConnectionType: 'AzureRM'
         azureSubscription: 'mine'
         appType: 'webApp'
-        WebAppName: 'projectxxxxxx'
+        WebAppName: 'testwebapp9876'
         packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
